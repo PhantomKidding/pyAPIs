@@ -20,9 +20,10 @@ def get_followers_ids(screen_name, account):
             for i in ids:
                 f.write(str(i) + '\n')
             current_page += 1
+            time.sleep(60)
         except tweepy.TweepError:
             print '\tWaiting on rate limit.'
-            time.sleep(60 * 15)
+            time.sleep(60)
         except StopIteration:
             print screen_name + ' Done!\n\n\n'
             break
